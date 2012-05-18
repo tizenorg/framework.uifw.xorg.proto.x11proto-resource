@@ -17,7 +17,7 @@ Description: %{summary}
 
 
 %prep
-%setup -q -n resourceproto-%{version}
+%setup -q -n %{name}-%{version}
 
 %build
 
