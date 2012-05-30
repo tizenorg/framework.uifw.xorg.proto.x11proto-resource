@@ -7,6 +7,7 @@ Group:      Development/System
 License:    MIT
 URL:        http://www.x.org
 Source0:    http://xorg.freedesktop.org/releases/individual/proto/resourceproto-%{version}.tar.gz
+Source1001: packaging/xorg-x11-proto-resourceproto.manifest 
 Provides:   resourceproto
 
 BuildRequires:  pkgconfig(xorg-macros)
@@ -20,6 +21,7 @@ Description: %{summary}
 %setup -q -n %{name}-%{version}
 
 %build
+cp %{SOURCE1001} .
 
 %reconfigure --disable-shared
 
@@ -40,6 +42,7 @@ rm -rf %{buildroot}
 
 
 %files
+%manifest xorg-x11-proto-resourceproto.manifest
 %defattr(-,root,root,-)
 %{_libdir}/pkgconfig/resourceproto.pc
 %{_includedir}/X11/extensions/XResproto.h
